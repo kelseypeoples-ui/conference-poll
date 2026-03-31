@@ -65,23 +65,16 @@
     return d.innerHTML;
   }
 
-  // ── QR Code (qrcodejs library) ────────────────────────────────────────
+  // ── QR Code (server-side image API) ──────────────────────────────────
   var submitUrl = location.origin + "/submit.html?event=" + encodeURIComponent(eventId);
   document.getElementById("qr-url-text").textContent = submitUrl;
 
-  try {
-    new QRCode(document.getElementById("qr-container"), {
-      text: submitUrl,
-      width: 200,
-      height: 200,
-      colorDark: "#000000",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.M
-    });
-  } catch (e) {
-    console.error("QR generation failed:", e);
-    document.getElementById("qr-container").textContent = "QR unavailable";
-  }
+  var qrImg = document.createElement("img");
+  qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(submitUrl);
+  qrImg.width = 200;
+  qrImg.height = 200;
+  qrImg.alt = "Scan to submit";
+  document.getElementById("qr-container").appendChild(qrImg);
 
   // ── Map Setup ─────────────────────────────────────────────────────────
   var map = L.map("map", {
