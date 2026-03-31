@@ -1,0 +1,173 @@
+body {
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 1rem;
+}
+
+.container {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 2rem 1.75rem 2.5rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: .35rem;
+}
+
+.event-badge {
+  display: inline-block;
+  background: #e8eaf0;
+  color: var(--text);
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: .5px;
+}
+
+/* ── Autocomplete ────────────────────────────── */
+
+.field-label {
+  display: block;
+  font-size: .85rem;
+  font-weight: 600;
+  margin-bottom: .4rem;
+  color: var(--text-muted);
+}
+
+.autocomplete-wrap {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.autocomplete-wrap input {
+  width: 100%;
+  padding: .75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #d1d5db;
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color .2s;
+  font-family: var(--font);
+}
+
+.autocomplete-wrap input:focus {
+  border-color: var(--primary);
+}
+
+.autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  background: var(--card-bg);
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  list-style: none;
+  z-index: 100;
+  display: none;
+}
+
+.autocomplete-list.open {
+  display: block;
+}
+
+.autocomplete-list li {
+  padding: .6rem 1rem;
+  cursor: pointer;
+  font-size: .95rem;
+  transition: background .15s;
+}
+
+.autocomplete-list li.active,
+.autocomplete-list li:hover {
+  background: #eef1f8;
+}
+
+.autocomplete-list li .match {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ── Buttons ─────────────────────────────────── */
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: .85rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: var(--font);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background .2s, opacity .2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.btn-primary:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* ── Feedback ────────────────────────────────── */
+
+.feedback {
+  text-align: center;
+  margin-top: 1.25rem;
+  min-height: 1.5rem;
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.feedback.success { color: var(--success); }
+.feedback.error   { color: var(--danger); }
+
+.cooldown-text {
+  display: block;
+  text-align: center;
+  margin-top: .5rem;
+  font-size: .8rem;
+  color: var(--text-muted);
+}
+
+/* ── Error page ──────────────────────────────── */
+
+.error-page {
+  text-align: center;
+}
+
+.error-page h1 {
+  font-size: 1.4rem;
+  margin-bottom: .75rem;
+  color: var(--danger);
+}
+
+.error-page p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}

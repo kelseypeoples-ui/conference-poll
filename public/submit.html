@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>Submit Your Country</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/submit.css">
+</head>
+<body>
+
+  <!-- Shown when event code is missing / invalid -->
+  <div id="error-view" class="container error-page" style="display:none">
+    <h1>Invalid Event</h1>
+    <p id="error-msg">Please use a valid link with an event code, e.g.<br>
+       <code>/submit.html?event=MYCONF2026</code></p>
+  </div>
+
+  <!-- Main submission form -->
+  <div id="form-view" class="container" style="display:none">
+    <div class="header">
+      <h1>What country is your top or shoes made in?</h1>
+      <span class="event-badge" id="event-label"></span>
+    </div>
+
+    <label class="field-label" for="country-input">Check the label and select the country</label>
+    <div class="autocomplete-wrap">
+      <input
+        type="text"
+        id="country-input"
+        autocomplete="off"
+        placeholder="Start typing a country name..."
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        aria-autocomplete="list"
+        aria-controls="country-list"
+      >
+      <ul id="country-list" class="autocomplete-list" role="listbox"></ul>
+    </div>
+
+    <button id="submit-btn" class="btn btn-primary" disabled>Submit</button>
+    <span id="cooldown" class="cooldown-text"></span>
+    <div id="feedback" class="feedback"></div>
+  </div>
+
+  <script src="/js/countries.js"></script>
+  <script src="/js/submit.js"></script>
+</body>
+</html>
